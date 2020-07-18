@@ -1,0 +1,8 @@
+<configuration>
+	<parameter>
+		<alpha>1.0</alpha>
+		<beta>3.0</beta>
+		<rho>0.98</rho>
+		<initPheromone>1.0</initPheromone>
+	</parameter>
+</configuration>
