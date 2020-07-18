@@ -15,7 +15,7 @@ namespace TSPUtility
 {
     public partial class MainForm : Form
     {
-        public List<City> cities;
+        public Cities cities;
         int  circleRadius = 10;
 
         public MainForm()
@@ -26,7 +26,7 @@ namespace TSPUtility
 
         private void InitializeMembers()
         {
-            cities = new List<City>();
+            cities = new Cities();
         }
 
         private void 終了ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -39,10 +39,7 @@ namespace TSPUtility
             cities.Add(new City(e.X, e.Y));
             drawCity(e.X, e.Y);
 
-            if(cities.Count() >= 2)
-            {
-                writeArrow(cities[cities.Count()-2], cities[cities.Count()-1]);
-            }
+            drawAllArrow();
 
         }
 
@@ -64,7 +61,15 @@ namespace TSPUtility
             mapPictureBox.Image = canvas;
         }
 
-        private void writeArrow(City city1, City city2, int width=3)
+        private void drawAllArrow()
+        {
+            for(int i=0; i<cities.Count()-1; i++)
+            {
+                drawArrow(cities[i], cities[i + 1]);
+            }
+        }
+
+        private void drawArrow(City city1, City city2, int width=3)
         {
             Bitmap canvas = new Bitmap(mapPictureBox.Image);
             Graphics g = Graphics.FromImage(canvas);

@@ -49,6 +49,21 @@ namespace TSPUtility
             cities = new List<City>();
         }
 
+        public City this[int i]
+        {
+            get { return cities[i]; }
+        }
+
+        public int Count()
+        {
+            return cities.Count();
+        }
+
+        public void Add(City city)
+        {
+            cities.Add(city);
+        }
+
         /// <summary>
         /// 年を追加する
         /// </summary>
